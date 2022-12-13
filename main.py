@@ -47,15 +47,15 @@ def get_file_list(folder):
     return file_list # повертаємо список файлів
 
 
-#Функція для сортування файлів по формату'.xlsx','.xlsx',
+#Функція для сортування файлів по формату
 def sort_file(put):
     file_list = get_file_list(put)
-    documents = ['.pdf', '.docx', '.doc', '.txt',  '.pdf', '.pptx']
+    documents = ['.pdf', '.docx', '.doc', '.txt','.xlsx',  '.pdf', '.pptx']
     images = ['.jpeg', '.jpg', '.svg', '.png']
     video = ['.avi', '.mp4', '.mov', '.mkv']
     music = ['mp3', '.ogg', 'wav', '.amr']
     compressedFiles = ['.zip', '.gz', '.tar']
-    all = ['.pdf', '.docx', '.doc', '.txt', '.pdf',
+    all = ['.pdf', '.docx', '.doc', '.txt', '.pdf','.xlsx',
            '.pptx', '.jpeg', '.jpg', '.svg', '.png', '.avi',
            '.mp4', '.mov', '.mkv', 'mp3', '.ogg', 'wav', '.amr',
            '.zip', '.gz', '.tar' ]
