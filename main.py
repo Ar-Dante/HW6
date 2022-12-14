@@ -75,7 +75,8 @@ def sort_file(put):
                         new_locations = shutil.move(path.absolute(), DocumentsLocation)
                         new_name = normalize(path.stem) + path.suffix
                         os.rename(new_locations, os.path.join(DocumentsLocation, new_name))
-                    except shutil.Error:
+                    except Exception as err:
+                        print(f'[ERROR]: {err}')
                         continue
                 if os.path.splitext(file)[1] in images:
                     try:
@@ -85,7 +86,8 @@ def sort_file(put):
                         new_locations = shutil.move(path.absolute(), ImageLocation)
                         new_name = normalize(path.stem) + path.suffix
                         os.rename(new_locations, os.path.join(ImageLocation, new_name))
-                    except shutil.Error:
+                    except Exception as err:
+                        print(f'[ERROR]: {err}')
                         continue
                 if os.path.splitext(file)[1] in video:
                     try:
@@ -95,7 +97,8 @@ def sort_file(put):
                         new_locations = shutil.move(path.absolute(), VideoLocation)
                         new_name = normalize(path.stem) + path.suffix
                         os.rename(new_locations, os.path.join(VideoLocation, new_name))
-                    except shutil.Error:
+                    except Exception as err:
+                        print(f'[ERROR]: {err}')
                         continue
                 if os.path.splitext(file)[1] in music:
                     try:
@@ -105,7 +108,8 @@ def sort_file(put):
                         new_locations = shutil.move(path.absolute(), MusicLocation)
                         new_name = normalize(path.stem) + path.suffix
                         os.rename(new_locations, os.path.join(MusicLocation, new_name))
-                    except shutil.Error:
+                    except Exception as err:
+                        print(f'[ERROR]: {err}')
                         continue
                 try:
                     if os.path.splitext(file)[1] in compressedFiles:
@@ -118,8 +122,6 @@ def sort_file(put):
 
                         os.rename(new_locations, os.path.join(compressedFilesLocation, new_name))
                         shutil.unpack_archive(Path(new_locations).absolute(), os.path.join(compressedFilesLocation, path.stem))
-                except shutil.Error:
-                        continue
                 except Exception as err:
                     print(f'ERROR {err}')
             else:
@@ -130,7 +132,8 @@ def sort_file(put):
                     shutil.move(path.absolute(), FilesLocation)
                     #new_name = normalize(path.stem) + path.suffix
                     #os.rename(new_locations, os.path.join(ImageLocation, new_name))
-                 except shutil.Error:
+                 except Exception as err:
+                        print(f'[ERROR]: {err}')
                         continue
 
 def main():
